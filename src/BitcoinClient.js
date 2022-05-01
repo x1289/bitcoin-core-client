@@ -33,9 +33,13 @@ export default class BitcoinClient {
         } else if (res.statusCode > 500 && res.statusCode < 600) {
           reject(new Error(`[Server error] Failed to request method '${method}' with status code '${res.statusCode}'`));
         }
+        let result = Buffer.alloc(0);
         res.on('data', (chunk) => {
+          result = Buffer.concat([result, chunk]);
+        });
+        res.on('end', () => {
           try {
-            const response = JSON.parse(chunk);
+            const response = JSON.parse(result.toString());
             resolve(response.result)
           } catch (error) {
             reject(new Error(`failed to parse response '${chunk}'.`))
