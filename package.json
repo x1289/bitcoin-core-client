@@ -1,6 +1,6 @@
 {
   "name": "bitcoin-core-client",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "A Bitcoin Core REST and RPC client",
   "main": "src/BitcoinClient.js",
@@ -18,7 +18,7 @@
     "rpc",
     "REST"
   ],
-  "author": "",
+  "author": "x1289",
   "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/x1289/bitcoin-core-client/issues"
